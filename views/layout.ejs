@@ -1,0 +1,117 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#e8293b" />
+    <meta name="HandheldFriendly" content="true" />
+    <title>Home | Startec Lubricants</title>
+    <meta name="author" content="Themezinho" />
+    <meta name="description" content="Brabus | Contemporary Modern Portfolio for Agencies" />
+    <meta name="keywords"
+        content="creative, works, showcase, portfolio, highlight, projects, modern, agency, digital, studio, css, animation, transition, freelancers" />
+
+    <!-- SOCIAL MEDIA META -->
+    <meta property="og:description" content="Brabus | Contemporary Modern Portfolio for Agencies" />
+    <meta property="og:image" content="http://www.themezinho.net/brabus/preview.png" />
+    <meta property="og:site_name" content="Brabus" />
+    <meta property="og:title" content="Brabus" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://www.themezinho.net/brabus" />
+
+    <!-- TWITTER META -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@brabus" />
+    <meta name="twitter:creator" content="@brabus" />
+    <meta name="twitter:title" content="brabus" />
+    <meta name="twitter:description" content="Brabus | Contemporary Modern Portfolio for Agencies" />
+    <meta name="twitter:image" content="http://www.themezinho.net/brabus/preview.png" />
+
+    <!-- FAVICON FILES -->
+    <link href="ico/apple-touch-icon-144-precomposed.png" rel="apple-touch-icon" sizes="144x144" />
+    <link href="ico/apple-touch-icon-114-precomposed.png" rel="apple-touch-icon" sizes="114x114" />
+    <link href="ico/apple-touch-icon-72-precomposed.png" rel="apple-touch-icon" sizes="72x72" />
+    <link href="ico/apple-touch-icon-57-precomposed.png" rel="apple-touch-icon" />
+    <link href="ico/favicon.png" rel="shortcut icon" />
+
+    <!-- CSS FILES -->
+    <link rel="stylesheet" href="css/animate.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/odometer.min.css" />
+    <link rel="stylesheet" href="css/fancybox.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="chrome-extension://mooikfkahbdckldjjndioackbalphokd/assets/prompt.js"></script>
+</head>
+
+<body class="page-loaded">
+    <div class="preloader">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="inner" data-tilt="" data-tilt-perspective="2000">
+            <figure class="fadeInUp animated">
+                <img src="images/preloader.gif" alt="Image" />
+            </figure>
+            <span class="typewriter" id="typewriter"><span id="typewriter-prefix"></span><span
+                    id="typewriter-text">Please</span><span id="typewriter-suffix"
+                    style="opacity: 0.631937">█</span></span>
+        </div>
+        <!-- end inner -->
+    </div>
+    <!-- end preloader -->
+    <div class="transition-overlay">
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+        <div class="layer"></div>
+    </div>
+    <%- include('./partials/header.ejs') %>
+        <main>
+            <%- body %>
+        </main>
+        <%- include('./partials/footer.ejs') %>
+            <audio id="hamburger-hover" src="audio/link.mp3" preload="auto"></audio>
+
+            <!-- JS FILES -->
+            <script src="js/jquery.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/swiper.min.js"></script>
+            <script src="js/tilt.jquery.js"></script>
+            <script src="js/wow.min.js"></script>
+            <script src="js/odometer.min.js"></script>
+            <script src="js/jquery.typewriter.js"></script>
+            <script src="js/fancybox.min.js"></script>
+            <script src="js/app.js"></script>
+            <script src="js/scripts.js"></script>
+            <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+
+            <script>
+                // external js: isotope.pkgd.js
+
+                // init Isotope elements
+                var $box = $(".isotope-box").isotope({
+                    itemSelector: ".isotope-item"
+                });
+                // filter functions
+                // bind filter button click
+                $(".isotope-toolbar").on("click", "button", function () {
+                    var filterValue = $(this).attr("data-type");
+                    $(".isotope-toolbar").find(".active").removeClass("active");
+                    $(this).addClass("active");
+                    if (filterValue !== "*") {
+                        filterValue = '[data-type="' + filterValue + '"]';
+                    }
+                    console.log(filterValue);
+                    $box.isotope({ filter: filterValue });
+                });
+
+// change is-checked class on buttons
+
+            </script>
+</body>
+
+</html>
