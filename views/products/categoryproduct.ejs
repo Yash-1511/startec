@@ -1,0 +1,72 @@
+<header
+  class="page-header"
+  style="opacity: 0.982857; transition: all 0.05s ease-in-out 0s"
+>
+  <div class="video-bg">
+    <video src="/videos/video2.mp4" muted="" loop="" autoplay=""></video>
+  </div>
+  <!-- end video-bg -->
+  <div class="container">
+    <h1>Products</h1>
+    <p>TO CREATE A POWERFUL PROJECT ONCE, A BIT OF LUCK IS ENOUGH</p>
+  </div>
+  <!-- end container -->
+  <aside class="left-side">
+    <ul>
+      <li><a href="#">FACEBOOK</a></li>
+      <li><a href="#">BEHANCE</a></li>
+      <li><a href="#">DRIBBBLE</a></li>
+    </ul>
+  </aside>
+  <!-- end left-side -->
+  <div class="scroll-down"><small>SCROLL DOWN</small><span></span></div>
+  <!-- end scroll-down -->
+  <div class="sound">
+    <span> SOUND </span>
+    <div class="equalizer paused">
+      <div class="holder">
+        <span style="height: 13.8523px"></span>
+        <span style="height: 9.47677px"></span>
+        <span style="height: 17.7319px"></span>
+        <span style="height: 8.35393px"></span
+        ><span style="height: 9.03559px"></span
+        ><span style="height: 16.2152px"></span>
+      </div>
+      <!-- end holder -->
+    </div>
+    <!-- end equalizer -->
+  </div>
+  <!-- end sound -->
+</header>
+<section class="works-single">
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-12 wow fadeIn"
+        style="visibility: visible; animation-name: fadeIn"
+      >
+        <h6>Products</h6>
+        <h2>All <%= categoryname %> Products</h2>
+      </div>
+
+      <!-- end col-12 -->
+      <% product.forEach(element => { %>
+      <div
+        class="col-md-3 wow fadeIn"
+        style="visibility: visible; animation-name: fadeIn"
+      >
+        <figure>
+          <a href="/<%= element.uploadedFile.folder %>/<%= element.uploadedFile.path %>" data-fancybox=""
+            ><img src="/uploads/<%= element.uploadedFile.path %>" alt="Image"
+          /></a>
+          <figcaption>
+            <h4><%= element.name %></h4>
+          </figcaption>
+        </figure>
+      </div>
+      <% }) %>
+    </div>
+    <!-- end row -->
+  </div>
+  <!-- end container -->
+</section>

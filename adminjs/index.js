@@ -18,6 +18,19 @@ const admin = new AdminJS({
   resources:[
     {
         resource: Product,
+          features: [
+          uploadFeature({
+          provider: { local: { bucket: 'uploads' } },
+          properties: {
+            key: "uploadedFile.path",
+            bucket: "uploadedFile.folder",
+            mimeType: "uploadedFile.type",
+            size: "uploadedFile.size",
+            filename: "uploadedFile.filename",
+            file: "uploadFile",
+          },
+        }),
+      ],
     },
     {
         resource: Category,

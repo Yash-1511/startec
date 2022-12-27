@@ -12,11 +12,13 @@ app.use(expressLayouts);
 app.set("views", path.join(__dirname, "views"));
 app.set('layout', 'layout')
 app.set("view engine", "ejs");
+app.use('/uploads', express.static('uploads'));
+
 //routes config
 const indexRouter = require("./routes/index");
 const adminRouter = require('./adminjs/');
 
-app.use("/admin",adminRouter)
+app.use("/admin",adminRouter);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
