@@ -16,7 +16,7 @@ app.use('/uploads', express.static('uploads'));
 
 //routes config
 const indexRouter = require("./routes/index");
-const adminRouter = require('./adminjs/');
+const adminRouter = require('./adminjs/index.ts');
 
 app.use("/admin",adminRouter);
 app.use(express.urlencoded({extended:true}));

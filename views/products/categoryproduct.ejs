@@ -52,19 +52,71 @@
       <!-- end col-12 -->
       <% product.forEach(element => { %>
       <div
-        class="col-md-3 wow fadeIn"
+        class="col-md-3 wow fadeIn shadow-sm"
         style="visibility: visible; animation-name: fadeIn"
       >
         <figure>
           <a href="/<%= element.uploadedFile.folder %>/<%= element.uploadedFile.path %>" data-fancybox=""
-            ><img src="/uploads/<%= element.uploadedFile.path %>" alt="Image"
+            ><img src="/uploads/<%= element.uploadedFile.path %>" alt="Image" 
           /></a>
           <figcaption>
-            <h4><%= element.name %></h4>
+            <h5><a href="/products/<%= element.slug %>"><%= element.name %></a></h5>
           </figcaption>
         </figure>
       </div>
       <% }) %>
+      <div
+        class="col-md-3 wow fadeIn shadow-sm"
+        style="visibility: visible; animation-name: fadeIn"
+      >
+        <figure>
+          <a href="/<%= product[0].uploadedFile.folder %>/<%= product[0].uploadedFile.path %>" data-fancybox=""
+            ><img src="/uploads/<%= product[0].uploadedFile.path %>" alt="Image" 
+          /></a>
+          <figcaption>
+            <h5><a href="/products/<%= product[0].slug %>"><%= product[0].name %></a></h5>
+          </figcaption>
+        </figure>
+      </div>
+      <div
+      class="col-md-3 wow fadeIn shadow-sm"
+      style="visibility: visible; animation-name: fadeIn"
+    >
+      <figure>
+        <a href="/<%= product[0].uploadedFile.folder %>/<%= product[0].uploadedFile.path %>" data-fancybox=""
+          ><img src="/uploads/<%= product[0].uploadedFile.path %>" alt="Image" 
+        /></a>
+        <figcaption>
+          <h5><a href="/products/<%= product[0].slug %>"><%= product[0].name %></a></h5>
+        </figcaption>
+      </figure>
+    </div>
+    <div
+    class="col-md-3 wow fadeIn shadow-sm"
+    style="visibility: visible; animation-name: fadeIn"
+  >
+    <figure>
+      <a href="/<%= product[0].uploadedFile.folder %>/<%= product[0].uploadedFile.path %>" data-fancybox=""
+        ><img src="/uploads/<%= product[0].uploadedFile.path %>" alt="Image" 
+      /></a>
+      <figcaption>
+        <h5><a href="/products/<%= product[0].slug %>"><%= product[0].name %></a></h5>
+      </figcaption>
+    </figure>
+  </div>
+  <div
+  class="col-md-3 wow fadeIn shadow-sm"
+  style="visibility: visible; animation-name: fadeIn"
+>
+  <figure>
+    <a href="/<%= product[0].uploadedFile.folder %>/<%= product[0].uploadedFile.path %>" data-fancybox=""
+      ><img src="/uploads/<%= product[0].uploadedFile.path %>" alt="Image" 
+    /></a>
+    <figcaption>
+      <h5><a href="/products/<%= product[0].slug %>"><%= product[0].name %></a></h5>
+    </figcaption>
+  </figure>
+</div>
     </div>
     <!-- end row -->
   </div>

@@ -7,6 +7,32 @@ const uploadFeature = require("@adminjs/upload");
 const Category = require("../models/category");
 AdminJS.registerAdapter(AdminJSMongoose);
 
+const uploadFeatureFor = (name, multiple = false) =>
+  uploadFeature({
+   
+    provider: {
+      local: {
+        bucket: "uploads",
+        expires: 0,
+      },
+    },
+    multiple,
+    properties: {
+      key : name ? `${name}.path` : 'path',
+      bucket: name ? `${name}.folder` : 'folder',
+      mimeType: name ? `${name}.type` : 'type',
+      size: name ? `${name}.size` : 'size',
+      filename: name ? `${name}.filename` : 'filename',
+      file: name ? `${name}` : 'uploadFile'
+    },
+    uploadPath: (record, filename) =>
+      name
+        ? `${record.id()}/${name}/${filename}`
+        : `${record.id()}/global/${filename}`,
+  });
+
+
+
 const admin = new AdminJS({
   databases: [mongoose],
   rootPath: "/admin",
@@ -15,25 +41,33 @@ const admin = new AdminJS({
     companyName: "Startek Lubricants",
     softwareBrothers: false,
   },
-  resources:[
+  resources: [
     {
-        resource: Product,
-          features: [
-          uploadFeature({
-          provider: { local: { bucket: 'uploads' } },
-          properties: {
-            key: "uploadedFile.path",
-            bucket: "uploadedFile.folder",
-            mimeType: "uploadedFile.type",
-            size: "uploadedFile.size",
-            filename: "uploadedFile.filename",
-            file: "uploadFile",
+      resource: Product,
+      options: {
+        properties: {
+          uploadedFile: {
+            type: "mixed",
           },
-        }),
-      ],
+         },
+      },
+      features: [ uploadFeature({
+        provider: { local: {
+          bucket: "uploads",
+        } },
+
+        properties: {
+          key: "uploadedFile.path",
+          bucket: "uploadedFile.folder",
+          mimeType: "uploadedFile.type",
+          size: "uploadedFile.size",
+          filename: "uploadedFile.filename",
+          file: "uploadFile",
+        },
+      }),],
     },
     {
-        resource: Category,
+      resource: Category,
     },
   ],
   locale: {
