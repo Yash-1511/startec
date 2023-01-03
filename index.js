@@ -5,7 +5,6 @@ const path = require('path')
 const setupDB = require('./utils/db');
 const app = express();
 const port = process.env.PORT;
-
 setupDB();
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
@@ -21,6 +20,7 @@ const adminRouter = require('./adminjs/index.ts');
 app.use("/admin",adminRouter);
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
+
 
 app.use("/", indexRouter);  
 

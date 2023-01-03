@@ -4,6 +4,7 @@ const product = require("./products");
 router.get('/', (req, res) => {
     res.render('index');
 })
+
 router.get('/about', (req, res) => {
     res.render('pages/about');
 })

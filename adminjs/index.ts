@@ -4,34 +4,29 @@ const AdminJSMongoose = require("@adminjs/mongoose");
 const mongoose = require("mongoose");
 const Product = require("../models/product");
 const uploadFeature = require("@adminjs/upload");
+const uploadFileFeature = require("@adminjs/upload")
+
 const Category = require("../models/category");
 AdminJS.registerAdapter(AdminJSMongoose);
 
-const uploadFeatureFor = (name, multiple = false) =>
-  uploadFeature({
-   
+const uploadFeatureFor = (multiple=false) =>
+  uploadFileFeature({
     provider: {
       local: {
         bucket: "uploads",
-        expires: 0,
       },
     },
     multiple,
     properties: {
-      key : name ? `${name}.path` : 'path',
-      bucket: name ? `${name}.folder` : 'folder',
-      mimeType: name ? `${name}.type` : 'type',
-      size: name ? `${name}.size` : 'size',
-      filename: name ? `${name}.filename` : 'filename',
-      file: name ? `${name}` : 'uploadFile'
+      file: 'images.file',
+      filePath: 'images.path',
+      filename: 'images.filename',
+      filesToDelete: 'images.toDelete',
+      key: 'images.key',
+      mimeType: 'images.mimeType',
+      bucket: 'images.bucket',
     },
-    uploadPath: (record, filename) =>
-      name
-        ? `${record.id()}/${name}/${filename}`
-        : `${record.id()}/global/${filename}`,
   });
-
-
 
 const admin = new AdminJS({
   databases: [mongoose],
@@ -46,25 +41,17 @@ const admin = new AdminJS({
       resource: Product,
       options: {
         properties: {
-          uploadedFile: {
+          images: {
             type: "mixed",
           },
-         },
-      },
-      features: [ uploadFeature({
-        provider: { local: {
-          bucket: "uploads",
-        } },
-
-        properties: {
-          key: "uploadedFile.path",
-          bucket: "uploadedFile.folder",
-          mimeType: "uploadedFile.type",
-          size: "uploadedFile.size",
-          filename: "uploadedFile.filename",
-          file: "uploadFile",
+          description:{
+            type:"richtext",
+          }
         },
-      }),],
+      },
+      features: [
+       uploadFeatureFor(true),
+      ],
     },
     {
       resource: Category,
@@ -88,7 +75,7 @@ const ADMIN = {
   password: "star@1234",
 };
 const router = AdminJSExpress.buildAuthenticatedRouter(admin, {
-  authenticate: async (email, password) => {
+  authenticate: async (email: string, password: string) => {
     if (ADMIN.password === password && ADMIN.email === email) {
       return ADMIN;
     }
