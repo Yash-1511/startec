@@ -4,27 +4,30 @@ const AdminJSMongoose = require("@adminjs/mongoose");
 const mongoose = require("mongoose");
 const Product = require("../models/product");
 const uploadFeature = require("@adminjs/upload");
-const uploadFileFeature = require("@adminjs/upload")
+const uploadFileFeature = require("@adminjs/upload");
 
 const Category = require("../models/category");
 AdminJS.registerAdapter(AdminJSMongoose);
 
-const uploadFeatureFor = (multiple=false) =>
+const uploadFeatureFor = (multiple = false) =>
   uploadFileFeature({
     provider: {
-      local: {
-        bucket: "uploads",
+      aws: {
+        bucket: "starteclubricants",
+        accessKeyId: "AKIAWAEWLQ355QXEK2XH",
+        secretAccessKey: "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",
+        region: "ap-south-1",
       },
     },
     multiple,
     properties: {
-      file: 'images.file',
-      filePath: 'images.path',
-      filename: 'images.filename',
-      filesToDelete: 'images.toDelete',
-      key: 'images.key',
-      mimeType: 'images.mimeType',
-      bucket: 'images.bucket',
+      file: "images.file",
+      filePath: "images.path",
+      filename: "images.filename",
+      filesToDelete: "images.toDelete",
+      key: "images.key",
+      mimeType: "images.mimeType",
+      bucket: "images.bucket",
     },
   });
 
@@ -33,7 +36,7 @@ const admin = new AdminJS({
   rootPath: "/admin",
   branding: {
     logo: "/images/logo.png",
-    companyName: "Startek Lubricants",
+    companyName: "Startec Lubricants",
     softwareBrothers: false,
   },
   resources: [
@@ -42,16 +45,15 @@ const admin = new AdminJS({
       options: {
         properties: {
           images: {
+            isVisible:{list:false, show: true, edit: true},
             type: "mixed",
           },
-          description:{
-            type:"richtext",
-          }
+          description: {
+            type: "richtext",
+          },
         },
       },
-      features: [
-       uploadFeatureFor(true),
-      ],
+      features: [uploadFeatureFor(true)],
     },
     {
       resource: Category,
@@ -75,7 +77,7 @@ const ADMIN = {
   password: "star@1234",
 };
 const router = AdminJSExpress.buildAuthenticatedRouter(admin, {
-  authenticate: async (email: string, password: string) => {
+  authenticate: async (email, password) => {
     if (ADMIN.password === password && ADMIN.email === email) {
       return ADMIN;
     }

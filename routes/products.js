@@ -19,7 +19,6 @@ router.get('/category/:category', async (req, res) => {
             path: "brand",
             select: "name isActive slug"
         })
-        console.log(product)
         res.render('products/categoryproduct.ejs',{
             product,"categoryname":category?.name
         })

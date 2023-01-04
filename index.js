@@ -1,11 +1,14 @@
 require('dotenv').config();
 const express = require('express');
-const expressLayouts = require('express-ejs-layouts')
+const expressLayouts = require('express-ejs-layouts');
+const cookieParser = require("cookie-parser")
 const path = require('path')
 const setupDB = require('./utils/db');
 const app = express();
 const port = process.env.PORT;
 setupDB();
+
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(expressLayouts);
 app.set("views", path.join(__dirname, "views"));
