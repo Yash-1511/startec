@@ -2247,8 +2247,8 @@ s .process span:before {
   padding: 0 40px;
   font-size: 14px;
   font-weight: 600;
-  color: #0e0e0e;
-  background: #0000ff;
+  color: white;
+  background: #2563eb;
   border: none;
 }
 

@@ -46,9 +46,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <style>
-        body{
+        body {
             font-family: 'Lexend', sans-serif !important;
         }
     </style>
@@ -119,6 +120,34 @@
 
 // change is-checked class on buttons
 
+            </script>
+            <script>
+
+                $(document).ready(function () {
+                    $(window).scroll(function () {
+                        var scroll = $(window).scrollTop();
+                        if (scroll > 70) {
+                            $(".navbar").css({
+                                'background': 'white',
+                                'border-color': 'rgba(0,0,0,0)',
+                                'box-shadow': '0px 1px 30px 0px rgb(37 37 37 / 25%)'
+                            });
+                            $(".hamburger-menu b").css({
+                                'color':'#1d4ed8'
+                            })
+                        }
+
+                        else {
+                            $(".navbar").css({
+                                'background': 'transparent',
+                                'box-shadow': 'none'
+                            });
+                            $(".hamburger-menu b").css({
+                                'color':'white'
+                            })
+                        }
+                    })
+                })
             </script>
 </body>
 
