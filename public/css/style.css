@@ -1,14 +1,5 @@
 @charset "UTF-8";
 /*
-
-@Author: Themezinho
-@URL: http://www.themezinho.net
-
-This file contains the styling for the actual theme, this
-is the file you need to edit to change the look of the
-theme.
-
-
 // Table of contents //
 
 	01.	GOOGLE FONTS
@@ -51,7 +42,7 @@ theme.
 /* BODY */
 * {
   outline: none !important;
-  cursor: url('../images/oil.png'),auto !important;
+  /* cursor: url('../images/oil.png'),auto !important; */
 }
 
 body {
@@ -65,10 +56,7 @@ body {
   color: #0e0e0e;
 
 }
-*{
-  cursor: url("oil.png"),auto !important;
-  
-}
+
 /* CUSTOM HTML ELEMENTS */
 img {
   max-width: 100%;
@@ -914,7 +902,7 @@ section {
 .page-header .container {
   position: relative;
   z-index: 3;
-  padding: 0 10%;
+  /* padding: 0 10%; */
 }
 .page-header .container h1 {
   font-weight: 800;
@@ -1036,14 +1024,12 @@ header .sound .equalizer .holder {
 /* NAVBAR */
 .navbar {
   width: 100%;
-  position: absolute;
   left: 0;
   top: 0;
   padding: 10px 40px;
   color: #fff;
   font-size: 14px;
   z-index: 10;
-  /* background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(253,224,71,1) 99%); */
   transform: translateY(-130%);
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
@@ -1076,19 +1062,17 @@ header .sound .equalizer .holder {
   border-bottom: 2px solid #fff;
   text-decoration: none;
 }
-/* .navbar .logo {
-  margin: 0 auto;
-}
-.navbar .logo a {
-  float: left;
-} */
+
+
 .navbar .logo a img {
-  height: 56px;
+  height: 60px;
+  /* width: 100%; */
 }
 .navbar .right {
-  width: 30%;
+  width: 60%;
   margin-right: 0;
   display: flex;
+  
 }
 .navbar .right ul {
   margin-left: auto;
@@ -1102,7 +1086,9 @@ header .sound .equalizer .holder {
 }
 .navbar .right ul li a {
   position: relative;
+  color: black;
   padding-bottom: 6px;
+  font-size: 17px;
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -ms-transition: 0.25s ease-in-out;
@@ -1719,10 +1705,12 @@ s .process span:before {
 }
 .works-single h2 {
   margin-bottom: 50px;
-  font-weight: 800;
-  font-size: 60px;
+  font-weight: 700;
+  font-size: 50px;
   line-height: 1.2;
   padding-right: 35%;
+  text-transform: uppercase;
+  color:#1e40af;
 }
 .works-single h4 {
   margin-top: 5px;
@@ -2753,7 +2741,7 @@ s .process span:before {
   }
 
   .works-single h2 {
-    font-size: 32px;
+    font-size: 38px;
     margin-bottom: 20px;
   }
 
@@ -2935,9 +2923,9 @@ s .process span:before {
   .footer .footer-bottom ul li {
     margin-right: 15px;
   }
+
+ 
 }
 
 /*# sourceMappingURL=style.css.map */
-*{
-  cursor: url("../images/oil.png"),auto !important;  
-}
+

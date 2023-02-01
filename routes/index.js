@@ -12,5 +12,8 @@ router.get('/contact', (req, res) => {
     res.render('pages/contact');
 })
 
+router.get('/blogs',(req,res)=>{
+    res.render('blogs/blog');
+})
 router.use('/',product);
 module.exports = router;

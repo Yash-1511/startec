@@ -48,10 +48,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+
     <style>
         body {
             font-family: 'Lexend', sans-serif !important;
         }
+            .custom-shape-divider-top-1675234207 {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                overflow: hidden;
+                line-height: 0;
+            }
+            
+            .custom-shape-divider-top-1675234207 svg {
+                position: relative;
+                display: block;
+                width: calc(100% + 1.3px);
+                height: 92px;
+            }
+            
+            .custom-shape-divider-top-1675234207 .shape-fill {
+                fill: #FFFFFF;
+            }
+      
     </style>
 </head>
 
@@ -97,8 +119,12 @@
             <script src="/js/app.js"></script>
             <script src="/js/scripts.js"></script>
             <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
 
             <script>
+                new kursor({
+                    type: 1,
+                })
                 // external js: isotope.pkgd.js
 
                 // init Isotope elements
@@ -132,8 +158,11 @@
                                 'border-color': 'rgba(0,0,0,0)',
                                 'box-shadow': '0px 1px 30px 0px rgb(37 37 37 / 25%)'
                             });
+                            $(".language li a").css({
+                                'color':'#000'
+                            })
                             $(".hamburger-menu b").css({
-                                'color':'#1d4ed8'
+                                'color': '#1d4ed8'
                             })
                         }
 
@@ -143,7 +172,7 @@
                                 'box-shadow': 'none'
                             });
                             $(".hamburger-menu b").css({
-                                'color':'white'
+                                'color': 'white'
                             })
                         }
                     })

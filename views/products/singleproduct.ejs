@@ -1,22 +1,47 @@
-<header class="page-header" style="opacity: 0.982857; transition: all 0.05s ease-in-out 0s">
-  <div class="video-bg">
+<style>
+  .page-header {
+    height: 500px;
+    min-height: 0px;
+  }
+
+  .page-header .container h1 {
+    font-weight: 600;
+    font-size: 5vw;
+  }
+
+  .page-header .container h4 {
+    font-weight: 400;
+    font-size: 2vw;
+    color: #4f46e5;
+  }
+
+  @media only screen and (max-width: 767px),
+  only screen and (max-device-width: 767px) {
+    .page-header .container h1 {
+      font-size: 10vw;
+    }
+    .page-header .container h4 {
+      font-size: 6vw;
+    }
+  }
+</style>
+<header class="page-header"
+  style="transition: all 0.05s ease-in-out 0s; background-image: url('/images/headerproduct.jpg');opacity: 0.982857; ">
+  <!-- <div class="video-bg">
     <video src="/videos/video2.mp4" muted="" loop="" autoplay=""></video>
-  </div>
+  </div> -->
   <!-- end video-bg -->
   <div class="container">
-    <h1>WORKS</h1>
-    <p>TO CREATE A POWERFUL PROJECT ONCE, A BIT OF LUCK IS ENOUGH</p>
+    <h1>
+      <%= productDoc.name %>
+    </h1>
+    <h4>
+      <%= productDoc.brand.name %>
+    </h4>
   </div>
   <!-- end container -->
-  <aside class="left-side">
-    <ul>
-      <li><a href="#">FACEBOOK</a></li>
-      <li><a href="#">BEHANCE</a></li>
-      <li><a href="#">DRIBBBLE</a></li>
-    </ul>
-  </aside>
+
   <!-- end left-side -->
-  <div class="scroll-down"><small>SCROLL DOWN</small><span></span></div>
   <!-- end scroll-down -->
   <div class="sound">
     <span> SOUND </span>
@@ -38,16 +63,30 @@
   <div class="container">
     <div class="row">
       <div class="col-12 wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/category">products</a></li>
+            <li class="breadcrumb-item"><a href="/category/<%=productDoc.brand.slug%>">
+                <%= productDoc.brand.name %>
+              </a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <%= productDoc.name %>
+            </li>
+          </ol>
+        </nav>
         <h6>
-          <%= productDoc.brand.name %>
+
         </h6>
         <h2>
           <%= productDoc.name %>
         </h2>
       </div>
       <!-- end col-12 -->
-      <div class="col-md-4 wow fadeIn" style="visibility: hidden; animation-name: none;">
-        <figure><a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= productDoc.images.key[0] %>" data-fancybox=""><img src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= productDoc.images.key[0] %>"
+      <div class="col-md-4 wow fadeIn" style="visibility: hidden; animation-name: none; ">
+        <figure><a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= productDoc.images.key[0] %>"
+            data-fancybox=""><img
+              src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= productDoc.images.key[0] %>"
               alt="Image"></a></figure>
       </div>
       <!-- end col-5 -->
@@ -70,18 +109,21 @@
       </div>
 
       <div class="col-md-12">
-        <h4>Available in : <% productDoc.size.forEach(element => { %>
-         <%= element %>
-        <% }) %></h4>
+        <h4>Available in : <% productDoc.size.forEach(element=> { %>
+            <%= element %>
+              <% }) %>
+        </h4>
       </div>
       <!-- end col-7 -->
+
       <% productDoc.images.key.forEach(element=> { %>
-        <div class="col-md-3 mt-4 wow fadeIn" style="visibility: hidden; animation-name: none;">
-          <figure><a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element %>" data-fancybox=""><img src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element %>" alt="Image"></a>
+        <div class="col-md-3 mt-4 wow fadeIn"
+          style="visibility: hidden; animation-name: none; box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;">
+          <figure><a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element %>" data-fancybox=""><img
+                src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element %>" alt="Image"></a>
           </figure>
         </div>
         <% }) %>
-
           <!-- end col-4 -->
     </div>
     <!-- end row -->

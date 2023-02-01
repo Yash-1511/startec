@@ -1,25 +1,43 @@
-<header
-  class="page-header"
-  style="opacity: 0.982857; transition: all 0.05s ease-in-out 0s"
->
-  <div class="video-bg">
-    <video src="/videos/video2.mp4" muted="" loop="" autoplay=""></video>
-  </div>
+<style>
+  .page-header {
+    height: 500px;
+    min-height: 0px;
+  }
+
+  .page-header .container h1 {
+    font-weight: 600;
+    font-size: 5vw;
+  }
+
+  .page-header .container h4 {
+    font-weight: 400;
+    font-size: 2vw;
+    color: #281ee6;
+    color: white;
+  }
+
+  @media only screen and (max-width: 767px),
+  only screen and (max-device-width: 767px) {
+    .page-header .container h1 {
+      font-size: 10vw;
+    }
+
+    .page-header .container h4 {
+      font-size: 4vw;
+    }
+  }
+</style>
+<header class="page-header"
+  style="opacity: 0.982857; transition: all 0.05s ease-in-out 0s; background-image: url('/images/blogs/image.png');opacity: 0.982857;background-size:cover; background-position:left;">
+
   <!-- end video-bg -->
   <div class="container">
-    <h1>Products</h1>
-    <p>TO CREATE A POWERFUL PROJECT ONCE, A BIT OF LUCK IS ENOUGH</p>
+    <h1>
+      <%= categoryname %>
+    </h1>
+    <h4>See our wide range of <%= categoryname %> products</h4>
   </div>
   <!-- end container -->
-  <aside class="left-side">
-    <ul>
-      <li><a href="#">FACEBOOK</a></li>
-      <li><a href="#">BEHANCE</a></li>
-      <li><a href="#">DRIBBBLE</a></li>
-    </ul>
-  </aside>
-  <!-- end left-side -->
-  <div class="scroll-down"><small>SCROLL DOWN</small><span></span></div>
   <!-- end scroll-down -->
   <div class="sound">
     <span> SOUND </span>
@@ -28,9 +46,8 @@
         <span style="height: 13.8523px"></span>
         <span style="height: 9.47677px"></span>
         <span style="height: 17.7319px"></span>
-        <span style="height: 8.35393px"></span
-        ><span style="height: 9.03559px"></span
-        ><span style="height: 16.2152px"></span>
+        <span style="height: 8.35393px"></span><span style="height: 9.03559px"></span><span
+          style="height: 16.2152px"></span>
       </div>
       <!-- end holder -->
     </div>
@@ -41,31 +58,38 @@
 <section class="works-single">
   <div class="container">
     <div class="row">
-      <div
-        class="col-12 wow fadeIn"
-        style="visibility: visible; animation-name: fadeIn"
-      >
-        <h6>Products</h6>
+      <div class="col-12 wow fadeIn" style="visibility: visible; animation-name: fadeIn">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Home</a></li>
+            <li class="breadcrumb-item"><a href="/category">Products</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              <%= categoryname %>
+            </li>
+
+          </ol>
+        </nav>
         <h2>All <%= categoryname %> Products</h2>
       </div>
 
       <!-- end col-12 -->
-      <% product.forEach(element => { %>
-      <div
-        class="col-md-3 wow fadeIn shadow-sm"
-        style="visibility: visible; animation-name: fadeIn"
-      >
-        <figure>
-          <a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element.images.key[0] %>" data-fancybox=""
-            ><img src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element.images.key[0] %>" alt="Image" 
-          /></a>
-          <figcaption>
-            <h5><a href="/products/<%= element.slug %>"><%= element.name %></a></h5>
-          </figcaption>
-        </figure>
-      </div>
-      <% }) %>
-     
+      <% product.forEach(element=> { %>
+        <div class="col-md-3 wow fadeIn"
+          style="visibility: visible; animation-name: fadeIn; box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;">
+          <figure>
+            <a href="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element.images.key[0] %>"
+              data-fancybox=""><img
+                src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= element.images.key[0] %>"
+                alt="Image" /></a>
+            <figcaption>
+              <h5><a href="/products/<%= element.slug %>" style="color:#1e40af;">
+                  <%= element.name %>
+                </a></h5>
+            </figcaption>
+          </figure>
+        </div>
+        <% }) %>
+
     </div>
     <!-- end row -->
   </div>
