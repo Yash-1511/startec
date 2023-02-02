@@ -1,0 +1,84 @@
+<style>
+    .page-header {
+        height: 500px;
+        min-height: 0px;
+    }
+
+    .page-header .container h1 {
+        font-weight: 600;
+        font-size: 5vw;
+    }
+
+    .page-header .container h4 {
+        font-weight: 400;
+        font-size: 2vw;
+        color: #281ee6;
+        color: white;
+    }
+
+    @media only screen and (max-width: 767px),
+    only screen and (max-device-width: 767px) {
+        .page-header .container h1 {
+            font-size: 10vw;
+        }
+
+        .page-header .container h4 {
+            font-size: 4vw;
+        }
+    }
+</style>
+<header class="page-header" style="opacity: 1; transition: all 0.05s ease-in-out 0s;background-image: url('/images/blogs/blog4.jpg');opacity: 0.982857;background-size:cover;  background-position:center;">
+  
+    <!-- end video-bg -->
+    <div class="container">
+        <h1><%= blog.title.substring(0,30)%>...</h1>
+    </div>
+    <!-- end container -->
+
+    <!-- end left-side -->
+    <!-- end scroll-down -->
+    <div class="sound"> <span> SOUND </span>
+        <div class="equalizer">
+            <div class="holder"> <span style="height: 26.0248px;"></span> <span style="height: 10.1626px;"></span> <span
+                    style="height: 11.4927px;"></span> <span style="height: 14.121px;"></span><span
+                    style="height: 9.88958px;"></span><span style="height: 16.6016px;"></span> </div>
+            <!-- end holder -->
+        </div>
+        <!-- end equalizer -->
+    </div>
+    <!-- end sound -->
+</header>
+<section class="news">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="post single-post wow fadeIn" style="visibility: visible; animation-name: fadeIn;">
+              <figure class="post-image">
+                  <img src="https://starteclubricants.s3.ap-south-1.amazonaws.com/<%= blog.uploadedFile.path %>" alt="Image">
+              </figure>
+              <!-- end news-image -->
+              <div class="post-content">
+              <div class="inner"> 
+                  <h3 class="post-title"><%= blog.title %></h3>
+                  
+            
+                   <%- blog.description %>
+                  </div>
+                  <!-- end inner -->
+              </div>
+              <!-- end post-content -->
+          </div>
+          <!-- end post -->
+          
+          <div class="pagination fadeIn">
+              <a href="#">PREV POST</a>
+              <a href="#">NEXT POST</a>
+          </div>
+          <!-- end pagination -->
+        </div>
+        <!-- end col-12 -->
+      </div>
+      <!-- end row --> 
+    </div>
+    <!-- end container --> 
+  </section>

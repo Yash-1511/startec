@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const Product = require("../models/product");
 const uploadFeature = require("@adminjs/upload");
 const uploadFileFeature = require("@adminjs/upload");
-
+const Blog = require("../models/blog")
 const Category = require("../models/category");
 AdminJS.registerAdapter(AdminJSMongoose);
 
@@ -57,6 +57,35 @@ const admin = new AdminJS({
     },
     {
       resource: Category,
+    },
+    {
+      resource: Blog,
+      options: {
+        properties: {
+          description: {
+            type: "richtext",
+          },
+        },
+      },
+      features: [
+        uploadFeature({
+          provider: { aws: {
+            bucket: "starteclubricants",
+            accessKeyId: "AKIAWAEWLQ355QXEK2XH",
+            secretAccessKey: "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",
+            region: "ap-south-1",
+          } },
+          properties: {
+            key: "uploadedFile.path",
+            bucket: "uploadedFile.folder",
+            mimeType: "uploadedFile.type",
+            size: "uploadedFile.size",
+            filename: "uploadedFile.filename",
+            file: "uploadFile",
+          },
+        }),
+      ],
+
     },
   ],
   locale: {
