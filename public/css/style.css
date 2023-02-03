@@ -1026,7 +1026,7 @@ header .sound .equalizer .holder {
   width: 100%;
   left: 0;
   top: 0;
-  padding: 10px 40px;
+  padding: 15px 40px;
   color: #fff;
   font-size: 14px;
   z-index: 10;
@@ -1088,7 +1088,10 @@ header .sound .equalizer .holder {
   position: relative;
   color: black;
   padding-bottom: 6px;
-  font-size: 17px;
+  font-size: 18px;
+  padding-left: 2px;
+  font-weight: 500;
+  color: #1e40af !important;
   -webkit-transition: 0.25s ease-in-out;
   -moz-transition: 0.25s ease-in-out;
   -ms-transition: 0.25s ease-in-out;
@@ -1098,7 +1101,8 @@ header .sound .equalizer .holder {
 }
 .navbar .right ul li a:hover {
   padding-bottom: 1px;
-  border-bottom: 2px solid #fff;
+  border-bottom: 5px solid 
+  #facc15;
   text-decoration: none;
 }
 .navbar .right .hamburger-menu {
@@ -1432,7 +1436,6 @@ header .sound .equalizer .holder {
   flex-wrap: wrap;
   padding: 100px 0;
   position: relative;
-  text-align: center;
 }
 .process h6 {
   display: block;
@@ -2328,6 +2331,7 @@ s .process span:before {
   flex-direction: column;
   padding: 100px 0;
   background: #111827;
+  background:#004a94;
   color: #fff !important;
 }
 .footer .footer-quote {
@@ -2337,7 +2341,7 @@ s .process span:before {
   margin-bottom: 80px;
 }
 .footer .footer-quote img {
-  height: 60px;
+  height: 80px;
   display: block;
   margin-bottom: 20px;
 }
@@ -2345,6 +2349,7 @@ s .process span:before {
   font-size: 3vw;
   font-weight: 800;
   margin-bottom: 0;
+  color: #ffd106;
 }
 .footer .footer-contact {
   width: 100%;
