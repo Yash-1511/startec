@@ -33,9 +33,9 @@
     // SLIDER
     var swiper = new Swiper(".swiper-slider", {
       speed: 600,
-      // autoplay: {
-      //   delay: 3000,
-      // },
+      autoplay: {
+        delay: 3000,
+      },
       pagination: {
         el: ".swiper-pagination",
         clickable: true,

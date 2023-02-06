@@ -1313,9 +1313,9 @@ header .sound .equalizer .holder {
 .swiper-slider .swiper-slide .slide-inner .container h1 {
   width: 100%;
   float: left;
-  font-weight: 500;
-  color: white;
-  font-size: 7vw;
+  font-weight: bold;
+  color: #ffd106;
+  font-size: 70px;
   /* -webkit-text-stroke-width: 1px; */
   /* -webkit-text-stroke-color: yellow; */
   /* color: white; */
