@@ -18,7 +18,7 @@ router.get('/category/:category', async (req, res) => {
         }).populate({
             path: "brand",
             select: "name isActive slug"
-        })
+        }).sort('order');
         res.render('products/categoryproduct.ejs',{
             product,"categoryname":category?.name
         })

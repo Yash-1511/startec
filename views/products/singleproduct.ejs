@@ -31,7 +31,7 @@
     <video src="/videos/video2.mp4" muted="" loop="" autoplay=""></video>
   </div> -->
   <!-- end video-bg -->
-  <div class="container">
+  <div class="container" style="text-transform:uppercase">
     <h1>
       <%= productDoc.name %>
     </h1>
@@ -109,9 +109,7 @@
       </div>
 
       <div class="col-md-12">
-        <h4>Available in : <% productDoc.size.forEach(element=> { %>
-            <%= element %>
-              <% }) %>
+        <h4>Available in : <%= productDoc.size.reverse() %>
         </h4>
       </div>
       <!-- end col-7 -->

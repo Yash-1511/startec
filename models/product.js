@@ -37,6 +37,9 @@ const ProductSchema = new Schema({
     ref: "Category",
     default: null,
   },
+  order:{
+    type: Number,
+  },
   updated: Date,
   created: {
     type: Date,
